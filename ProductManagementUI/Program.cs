@@ -2,13 +2,15 @@
 using ProductManagement.Domain.Interfaces;
 using ProductManagement.Domain.Entities;
 using ProductManagement.Business.Services;
+using SQLitePCL;
 namespace ProductManagementUI
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            ProdutoRepository repo = new ProdutoRepository();
+            //ProdutoRepository repo = new ProdutoRepository();
+            IProdutoRepository repo = new ProdutoSQLiteRepository();
             ProductService servico = new ProductService(repo);
 
             bool continuar = true;
