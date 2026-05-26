@@ -14,5 +14,7 @@ namespace ProductManagement.Domain.Interfaces
         public List<Produto> ObterTodos();
 
         public Produto? ObterPorNome(string nome); //? Nullable reference type
+
+        public bool Remover(int id);
     }
 }

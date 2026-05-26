@@ -52,5 +52,15 @@ namespace ProductManagement.Business.Services
         {
             return _repositorio.ObterPorNome(nome);
         }
+
+        public void RemoverProduto(int id)
+        {
+            bool removido = _repositorio.Remover(id);
+
+            if (!removido)
+            {
+                throw new Exception("produto não encontrado");
+            }
+        }
     }
 }

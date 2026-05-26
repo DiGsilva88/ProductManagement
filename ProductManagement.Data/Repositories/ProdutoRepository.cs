@@ -39,5 +39,25 @@ namespace ProductManagement.Data.Repositories
             return null;
         }
 
+        public bool Remover(int id)
+        {
+            Produto? produto = null;
+            foreach(Produto p in _produtos)
+            {
+                if(p.Id == id)
+                {
+                    produto = p;
+                    break;
+                }
+            }
+            if (produto != null)
+            {
+                _produtos.Remove(produto);
+                return true;
+            }
+            return false;
+
+        }
+
     }
 }

@@ -18,6 +18,7 @@ namespace ProductManagementUI
                 Console.WriteLine("1- Adicionar produto");
                 Console.WriteLine("2 - Listar produtos");
                 Console.WriteLine("3 - Procurar Produto");
+                Console.WriteLine("4 - Remover Produto");
                 Console.WriteLine("0 - para sair");
 
                 string opcao = Console.ReadLine();
@@ -63,6 +64,20 @@ namespace ProductManagementUI
                         Console.WriteLine($"{produto.Id}- {produto.Nome} - {produto.Preco}");
                     }
 
+                }
+                else if (opcao == "4")
+                {
+                    Console.WriteLine("ID do produto.");
+                    int id = int.Parse(Console.ReadLine());
+
+                    try
+                    {
+                        servico.RemoverProduto(id);
+                        Console.WriteLine("produto removido com sucesso");
+                    }catch(Exception ex)
+                    {
+                        Console.WriteLine("erro: "+ex.Message);
+                    }
                 }
                 else if(opcao == "0")
                 {
